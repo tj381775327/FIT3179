@@ -1,0 +1,25 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+  "width": 500,
+  "height": 300,
+  "data": {
+    "url": "https://tj381775327.github.io/FIT3179/js/us-counties.json",
+    "format": {"type": "topojson", "feature": "us-counties"}
+  },
+  "transform": [
+    {
+      "lookup": "properties.name",
+      "from": {
+        "data": {
+          "url": "https://tj381775327.github.io/FIT3179/data/hospital_beds_USA.csv"
+        },
+        "key": "countynew",
+        "fields": ["population"]
+      }
+    }
+  ],
+  "projection": {"type": "albersUsa"},
+  "mark": "geoshape",
+  "encoding": {"color": {"field": "population", "type": "quantitative"}},
+  "config": {}
+}
