@@ -102,7 +102,7 @@
         "tooltip": [
           {"field": "countynew", "type": "nominal", "title": "county"},
           {"field": "population", "type": "quantitative", "format": ","},
-          {"field": "type", "type": "nominal"},
+          {"field": "bed_type", "type": "nominal"},
           {"field": "beds", "type": "quantitative", "format": ","}
         ]
       }
