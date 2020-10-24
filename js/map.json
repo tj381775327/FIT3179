@@ -1,12 +1,38 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-  "width": 500,
-  "height": 300,
+  "width": 700,
+  "height": 400,
+  "title": "COVID-19 Cases beds used per 1000 people by state (24 Oct 2020)",
   "data": {
     "url": "https://raw.githubusercontent.com/tj381775327/FIT3179/main/js/us-counties.json",
+
     "format": {"type": "topojson", "feature": "us-counties"}
   },
+    "params": [
+    {
+    "name": "type_selection",
+    "bind": {
+      "input": "select",
+      "options": [
+        null,
+        "ICU",
+        "ACUTE",
+        "PSYCHIATRIC",
+        "OTHER"
+      ],
+      "labels":[
+        "Show All",
+        "ICU",
+        "ACUTE",
+        "PSYCHIATRIC",
+        "OTHER"
+      ],
+      "name": "type Selection: "
+    }
+  }
+ ],
   "transform": [
+    {"filter": "type_selection == null || datum.bed_type == type_selection"},
     {
       "lookup": "properties.name",
       "from": {
@@ -14,12 +40,29 @@
           "url": "https://raw.githubusercontent.com/tj381775327/FIT3179/main/data/hospital_beds_USA.csv"
         },
         "key": "countynew",
-        "fields": ["population"]
+        "fields": ["population","beds","bed_type"]
       }
-    }
-  ],
+    } 
+  ],  "selection": {
+ "type Selection": {
+ "type": "multi",
+ "fields": ["bed_type"],
+ "bind": "legend"
+ }
+ },
   "projection": {"type": "albersUsa"},
   "mark": "geoshape",
-  "encoding": {"color": {"field": "population", "type": "quantitative"}},
-  "config": {}
+  "encoding": {"color": {"field": "beds", "type": "quantitative","scale": {
+ "type": "threshold",
+ "domain": [1, 10, 100],
+ "range": [ "#a63603","#e6550d", "#fd8d3c","#fdbe85"]
+ }
+},
+ "tooltip": [
+ {"field": "properties.name", "type": "nominal", "title": "County"},
+ {"field": "bed_type", "type": "nominal", "title": "bedtype"},
+ {"field": "population", "type": "quantitative"},
+ {"field": "beds", "type": "quantitative"}
+ ]
+ }
 }
