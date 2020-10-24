@@ -75,7 +75,7 @@
         "tooltip": [
           {"field": "countynew", "type": "nominal", "title": "county"},
           {"field": "population", "type": "quantitative", "format": ","},
-          {"field": "type", "type": "nominal"},
+          {"field": "bed_type", "type": "nominal"},
           {"field": "beds", "type": "quantitative", "format": ","}
         ]
       }
@@ -94,7 +94,7 @@
         "color": {"value": "blue"},
         "opacity": {
           "condition": {
-            "test": "datum['county'] == 'new york' && datum['type'] == 'ICU'||datum['county'] == 'texas' && datum['type'] == 'ICU'",
+            "test": "datum['county'] == 'new york' && datum['bed_type'] == 'ICU'||datum['county'] == 'texas' && datum['bed_type'] == 'ICU'",
             "value": 1
           },
           "value": 0
