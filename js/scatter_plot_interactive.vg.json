@@ -1,0 +1,112 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+  "width": 800,
+  "height": 600,
+  "title": "COVID-19 Cases beds used per 1000 people by state (24 Oct 2020)",
+  "data": {
+    "url": "https://raw.githubusercontent.com/tj381775327/FIT3179/main/data/hospital_beds_USA.csv"
+  },
+  "params": [
+    {
+      "name": "state_selection",
+      "bind": {
+        "input": "select",
+        "options": [null, "CA", "TX", "WI", "IL", "FL", "NY"],
+        "labels": ["Show All", "CA", "TX", "WI", "IL", "FL", "NY"],
+        "name": "state Selection: "
+      }
+    }
+  ],
+  "transform": [
+    {"filter": "datum.beds > 0"},
+    {"filter": "datum.population > 0"},
+    {"filter": "state_selection == null || datum.state == state_selection"}
+  ],
+  "encoding": {
+    "x": {
+      "field": "beds",
+      "type": "quantitative",
+      "title": "Confirmed Cases",
+      "axis": {"tickCount": 5},
+      "scale": {"type": "log", "domain": [0.01, 50]}
+    },
+    "y": {"field": "population", "type": "quantitative"}
+  },
+  "layer": [
+    {
+      "selection": {
+        "state_highlight": {
+          "type": "multi",
+          "fields": ["state"],
+          "bind": "legend"
+        }
+      },
+      "mark": "circle",
+      "encoding": {
+        "size": {
+          "field": "beds",
+          "type": "quantitative",
+          "scale": {
+            "type": "threshold",
+            "domain": [0, 5, 10, 50, 100],
+            "range": [10, 50, 300, 400, 500, 600]
+          },
+          "legend": {"format": ".1s"}
+        },
+        "color": {
+          "field": "state",
+          "type": "nominal",
+          "scale": {
+            "domain": ["CA", "TX", "WI", "IL", "FL", "NY"],
+            "range": [
+              "#e41a1c",
+              "#984ea3",
+              "#ff7f00",
+              "#a6cee3",
+              "#377eb8",
+              "#a65628"
+            ]
+          }
+        },
+        "opacity": {
+          "condition": {"selection": "state_highlight", "value": 0.6},
+          "value": 0.2
+        },
+        "tooltip": [
+          {"field": "countynew", "type": "nominal", "title": "county"},
+          {"field": "population", "type": "quantitative", "format": ","},
+          {"field": "type", "type": "nominal"},
+          {"field": "beds", "type": "quantitative", "format": ","}
+        ]
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "baseline": "middle",
+        "dx": -12,
+        "fontSize": 11.5,
+        "fontStyle": "italic"
+      },
+      "encoding": {
+        "text": {"field": "county", "type": "nominal"},
+        "color": {"value": "blue"},
+        "opacity": {
+          "condition": {
+            "test": "datum['county'] == 'new york' && datum['type'] == 'ICU'||datum['county'] == 'texas' && datum['type'] == 'ICU'",
+            "value": 1
+          },
+          "value": 0
+        },
+        "tooltip": [
+          {"field": "countynew", "type": "nominal", "title": "county"},
+          {"field": "population", "type": "quantitative", "format": ","},
+          {"field": "type", "type": "nominal"},
+          {"field": "beds", "type": "quantitative", "format": ","}
+        ]
+      }
+    }
+  ],
+  "config": {}
+}
