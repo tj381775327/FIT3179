@@ -1,4 +1,4 @@
-country,state,county,lat,lng,type,beds,population,year,source,countynew
+country,state,county,lat,lng,bed_type,beds,population,year,source,countynew
 US,AK,aleutians east,63.588753,-154.493062,ICU,0,3338,2019,khn,Aleutians East
 US,AK,aleutians west,63.588753,-154.493062,ICU,0,5784,2019,khn,Aleutians West
 US,AK,anchorage,63.588753,-154.493062,ACUTE,2.182916,298225,2018,arcgis,Anchorage
