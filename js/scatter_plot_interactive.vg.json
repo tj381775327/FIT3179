@@ -26,7 +26,7 @@
     "x": {
       "field": "beds",
       "type": "quantitative",
-      "title": "Confirmed Cases",
+      "title": "beds used per 1000 peopel",
       "axis": {"tickCount": 5},
       "scale": {"type": "log", "domain": [0.01, 50]}
     },
