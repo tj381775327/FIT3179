@@ -1,0 +1,17 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+  "width": 800,
+  "height": 600,
+  "title": "COVID-19 Cases mean_of_beds used per 1000 people by bed_type (26 Oct 2020)",
+  "data": {
+    "url": "https://raw.githubusercontent.com/tj381775327/FIT3179/main/data/hospital_beds_USA.csv"
+  },
+  "mark": {"type": "line", "point": true},
+  "encoding": {
+    "x": {"timeUnit": "year", "field": "year"},
+    "y": {"aggregate": "mean", "field": "beds", "type": "quantitative"},
+    "color": {"field": "bed_type", "type": "nominal"},
+    "tooltip": [{"field": "mean_beds", "type": "quantitative"}]
+  },
+  "config": {}
+}
