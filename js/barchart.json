@@ -1,0 +1,27 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+  "width": 800,
+  "height": 600,
+  "data": {
+    "url": "https://raw.githubusercontent.com/tj381775327/FIT3179/main/data/hospital_beds_USA.csv"
+  },
+  "mark": "bar",
+  "encoding": {
+    "x": {"aggregate": "average", "field": "beds"},
+    "y": {
+      "field": "state",
+      "scale": {"domain": ["CA", "TX", "FL", "IL", "NY", "WI"]}
+    },
+    "color": {"field": "bed_type"},
+    "tooltip": [
+      {"field": "bed_type", "type": "nominal"},
+      {
+        "aggregate": "average",
+        "field": "beds",
+        "type": "quantitative",
+        "format": ","
+      }
+    ]
+  },
+  "config": {}
+}

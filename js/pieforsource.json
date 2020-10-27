@@ -1,0 +1,32 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+  "title": "The source distribution about COVID-19 Cases beds used  ",
+  "description": "A simple pie chart with embedded data.",
+  "data": {
+    "url": "https://raw.githubusercontent.com/tj381775327/FIT3179/main/data/hospital_beds_USA.csv"
+  },
+  "params": [
+    {
+      "name": "source_selection",
+      "bind": {
+        "input": "select",
+        "options": [null, "khn", "arcgis"],
+        "labels": ["Show All", "khn", "arcgis"],
+        "name": "source Selection: "
+      }
+    }
+  ],
+  "transform": [
+    {"filter": "source_selection == null || datum.source == source_selection"}
+  ],
+  "mark": "arc",
+  "encoding": {
+    "theta": {"aggregate": "count", "field": "source", "type": "quantitative"},
+    "color": {"field": "source", "type": "nominal"},
+    "tooltip": [
+      {"aggregate": "count", "field": "source", "type": "quantitative"}
+    ]
+  },
+  "view": {"stroke": null},
+  "config": {}
+}
