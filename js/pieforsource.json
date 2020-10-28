@@ -1,6 +1,8 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
   "title": "The source distribution about COVID-19 Cases beds used  ",
+     "width": 200,
+  "height": 200,
   "description": "A simple pie chart with embedded data.",
   "data": {
     "url": "https://raw.githubusercontent.com/tj381775327/FIT3179/main/data/hospital_beds_USA.csv"
