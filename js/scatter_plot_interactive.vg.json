@@ -1,8 +1,8 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
   "title": "COVID-19 Cases beds used per 1000 people by state ",
-  "width":380,
-  "height": 320,
+  "width":300,
+  "height": 280,
   "data": {
     "url": "https://raw.githubusercontent.com/tj381775327/FIT3179/main/data/hospital_beds_USA.csv"
   },
