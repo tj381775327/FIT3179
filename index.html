@@ -26,7 +26,7 @@
        background-color: lightgray;
      }
      .page{
-       width: 1300px;    
+       width: 850px;    
        background-color: white;   
        margin: auto;
        padding: 50px;
@@ -73,14 +73,14 @@
             <p>The first column is used for description while the next two columns are merged and used for visualisation. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Massa sapien faucibus et molestie ac feugiat sed. </p>
           </div>
         </div>
-        <div class="pure-u-1-5">
-          <div id="scatter_plot" class="vis-container"></div>
+        <div class="pure-u-3-5">
+          <div id="vis1" class="vis-container"></div>
         </div>
         <div class="pure-u-1-5">
-          <div id="pirchart_1" class="vis-container"></div>
+          <div id="vis2" class="vis-container"></div>
         </div>
         <div class="pure-u-1-5">
-          <div id="pirchart_2" class="vis-container"></div>
+          <div id="vis3" class="vis-container"></div>
         </div>
     </div>
     <!-- end pure grid group -->
@@ -128,31 +128,34 @@
   </div> <!-- end page -->
    
 <script type="text/javascript">
-  
-  var vis1 = "js/map.json";
-  
-  vegaEmbed('#choropleth_map', vis1).then(function(result) {
+  var specVis1 = "js/scatter_plot_interactive.vg.json";
+  var specVis2= ""js/pieforsource.json";
+  var specVis3= ""js/piefortype.json";                                                                                                                                               
+  var specVis4= ""js/barchart.json";
+  var specVis5= ""js/linechart.json"; 
+  var specVis6= ""js/map.json";
+                                                                                                                                                
+  vegaEmbed('#vis1', specVis1, {"actions": false}).then(function(result) {
     // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
   }).catch(console.error);
   
-  var vis2 = "js/scatter_plot_interactive.vg.json";
-  
-  vegaEmbed('#scatter_plot', vis2).then(function(result) {
+   vegaEmbed('#vis2', specVis2, {"actions": false}).then(function(result) {
     // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
   }).catch(console.error);
-  
-    var vis3 = "js/pieforsouce.json";
-  
-  vegaEmbed('#piechart_1', vis3).then(function(result) {
-    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
-  }).catch(console.error);
-  
-      var vis4 = "js/piefortype.json";
-  
-  vegaEmbed('#piechart_2', vis4).then(function(result) {
-    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
-  }).catch(console.error);
-</script>
 
+  vegaEmbed('#vis3', specVis3, {"actions": false}).then(function(result) {
+    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+  }).catch(console.error);
+
+  vegaEmbed('#vis4', specVis4, {"actions": false}).then(function(result) {
+    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+  }).catch(console.error);
+  vegaEmbed('#vis5', specVis5, {"actions": false}).then(function(result) {
+    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+  }).catch(console.error);
+  vegaEmbed('#vis6', specVis6, {"actions": false}).then(function(result) {
+    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+  }).catch(console.error);                                                                                                                                                
+</script>
 </body>
 </html>
