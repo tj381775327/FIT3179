@@ -76,7 +76,6 @@
         <div class="pure-u-2-3">
           <div id="vis1" class="vis-container"></div>
         </div>
-
     </div>
     <!-- end pure grid group -->
 
@@ -123,13 +122,9 @@
   </div> <!-- end page -->
    
 <script type="text/javascript">
-  var specVis1 = "js/scatter_plot_interactive.vg.json";
-  var specVis2= ""js/pieforsource.json";
-  var specVis3= ""js/piefortype.json";                                                                                                                                               
-  var specVis4= ""js/barchart.json";
-  var specVis5= ""js/linechart.json"; 
-  var specVis6= ""js/map.json";
-                                                                                                                                                
+  var specVis1 = "./normalised-stacked-bars-responsive.json";
+  var specVis2= "./line-chart-responsive.json";
+
   vegaEmbed('#vis1', specVis1, {"actions": false}).then(function(result) {
     // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
   }).catch(console.error);
@@ -138,19 +133,13 @@
     // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
   }).catch(console.error);
 
-  vegaEmbed('#vis3', specVis3, {"actions": false}).then(function(result) {
+  vegaEmbed('#vis3', specVis1, {"actions": false}).then(function(result) {
     // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
   }).catch(console.error);
 
-  vegaEmbed('#vis4', specVis4, {"actions": false}).then(function(result) {
+  vegaEmbed('#vis4', specVis2, {"actions": false}).then(function(result) {
     // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
   }).catch(console.error);
-  vegaEmbed('#vis5', specVis5, {"actions": false}).then(function(result) {
-    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
-  }).catch(console.error);
-  vegaEmbed('#vis6', specVis6, {"actions": false}).then(function(result) {
-    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
-  }).catch(console.error);                                                                                                                                                
 </script>
 </body>
 </html>
