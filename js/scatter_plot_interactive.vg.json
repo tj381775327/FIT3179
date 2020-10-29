@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-  "title": "COVID-19 Cases beds used per 1000 people by state ",
+  "title": "Hospital beds used per 1000 people by state ",
   "width":300,
   "height": 280,
   "data": {
@@ -26,7 +26,7 @@
     "x": {
       "field": "beds",
       "type": "quantitative",
-      "title": "beds used per 1000 peopel",
+      "title": "beds used per 1000 people",
       "axis": {"tickCount": 5},
       "scale": {"type": "log", "domain": [0.01, 50]}
     },
