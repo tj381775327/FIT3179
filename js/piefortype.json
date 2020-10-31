@@ -12,9 +12,9 @@
     "tooltip": [{"aggregate": "count", "field": "beds", "type": "quantitative"}]
   },
   "layer": [{
-    "mark": {"type": "arc", "outerRadius":80}
+    "mark": {"type": "arc", "outerRadius":140}
   }, {
-    "mark": {"type": "text", "radius": 95},
+    "mark": {"type": "text", "radius": 170},
     "encoding": {
       "text": {"aggregate": "count", "field": "beds", "type": "quantitative"}
     }
