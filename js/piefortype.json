@@ -1,18 +1,23 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-   "width":250,
+  "description": "A simple pie chart with labels.",
+     "width":250,
   "height": 320,
-  "title": "Hosptial beds used distribution by bed_type",
-  "description": "A simple pie chart with embedded data.",
   "data": {
     "url": "https://raw.githubusercontent.com/tj381775327/FIT3179/main/data/hospital_beds_USA.csv"
   },
-  "mark": "arc",
   "encoding": {
     "theta": {"aggregate": "count", "field": "beds", "type": "quantitative"},
     "color": {"field": "bed_type", "type": "nominal"},
     "tooltip": [{"aggregate": "count", "field": "beds", "type": "quantitative"}]
   },
-  "view": {"stroke": null},
-  "config": {}
+  "layer": [{
+    "mark": {"type": "arc", "outerRadius":80}
+  }, {
+    "mark": {"type": "text", "radius": 95},
+    "encoding": {
+      "text": {"aggregate": "count", "field": "beds", "type": "quantitative"}
+    }
+  }],
+  "view": {"stroke": true}
 }
