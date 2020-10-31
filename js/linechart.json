@@ -1,7 +1,7 @@
   
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-  "width":300,
+  "width":400,
   "height": 280,
   "title": "Hospital mean_of_beds used per 1000 people by bed_type ",
   "data": {
