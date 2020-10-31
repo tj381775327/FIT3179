@@ -2,7 +2,7 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
   "title": "Hospital beds used per 1000 people by state ",
   "width":300,
-  "height": 280,
+  "height": 260,
   "data": {
     "url": "https://raw.githubusercontent.com/tj381775327/FIT3179/main/data/hospital_beds_USA.csv"
   },
@@ -28,7 +28,7 @@
       "type": "quantitative",
       "title": "beds used per 1000 people",
       "axis": {"tickCount": 5},
-      "scale": {"type": "log", "domain": [0.01, 50]}
+      "scale": {"type": "sqre", "domain": [0.01, 50]}
     },
     "y": {"field": "population", 
           "type": "quantitative",
