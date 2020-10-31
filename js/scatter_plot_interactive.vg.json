@@ -2,7 +2,7 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
   "title": "Hospital beds used per 1000 people by state ",
   "width":300,
-  "height": 260,
+  "height": 280,
   "data": {
     "url": "https://raw.githubusercontent.com/tj381775327/FIT3179/main/data/hospital_beds_USA.csv"
   },
@@ -28,7 +28,7 @@
       "type": "quantitative",
       "title": "beds used per 1000 people",
       "axis": {"tickCount": 5},
-      "scale": {"type": "sqre", "domain": [0.01, 50]}
+      "scale": {"type": "sqrt", "domain": [0.01, 50]}
     },
     "y": {"field": "population", 
           "type": "quantitative",
@@ -84,34 +84,8 @@
           {"field": "beds", "type": "quantitative", "format": ","}
         ]
       }
-    },
-    {
-      "mark": {
-        "type": "text",
-        "align": "right",
-        "baseline": "middle",
-        "dx": -12,
-        "fontSize": 11.5,
-        "fontStyle": "italic"
-      },
-      "encoding": {
-        "text": {"field": "county", "type": "nominal"},
-        "color": {"value": "blue"},
-        "opacity": {
-          "condition": {
-            "test": "datum['county'] == 'new york' && datum['bed_type'] == 'ICU'||datum['county'] == 'texas' && datum['bed_type'] == 'ICU'",
-            "value": 1
-          },
-          "value": 0
-        },
-        "tooltip": [
-          {"field": "countynew", "type": "nominal", "title": "county"},
-          {"field": "population", "type": "quantitative", "format": ","},
-          {"field": "bed_type", "type": "nominal"},
-          {"field": "beds", "type": "quantitative", "format": ","}
-        ]
-      }
     }
   ],
+  
   "config": {}
 }
