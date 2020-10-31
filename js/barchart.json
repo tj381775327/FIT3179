@@ -1,8 +1,36 @@
+
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+    "width":300,
+  "height": 260,
   "data": {
     "url": "https://raw.githubusercontent.com/tj381775327/FIT3179/main/data/hospital_beds_USA.csv"
-  },
+  },  "params": [
+    {
+    "name": "type_selection",
+    "bind": {
+      "input": "select",
+      "options": [
+        null,
+        "ICU",
+        "ACUTE",
+        "PSYCHIATRIC",
+        "OTHER"
+      ],
+      "labels":[
+        "Show All",
+        "ICU",
+        "ACUTE",
+        "PSYCHIATRIC",
+        "OTHER"
+      ],
+      "name": "type Selection: "
+    }
+  }
+ ],
+   "transform": [
+    {"filter": "type_selection == null || datum.bed_type == type_selection"}
+  ],
   "mark": "bar",
   "encoding": {
     "x": {"aggregate": "average", "field": "beds"},
