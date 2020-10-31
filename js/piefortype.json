@@ -19,5 +19,5 @@
       "text": {"aggregate": "count", "field": "beds", "type": "quantitative"}
     }
   }],
-  "view": {"stroke": true}
+  "view": {"stroke": null}
 }
